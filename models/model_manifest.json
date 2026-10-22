@@ -1,0 +1,68 @@
+{
+  "project": "NASA / PML-UCF ALT Battery RUL Prediction",
+  "selected_model": "Random Forest",
+  "target": "RUL in remaining reference-discharge cycles until 80% SOH",
+  "feature_order": [
+    "cycle_index",
+    "elapsed_time_hours",
+    "discharge_duration_s",
+    "mean_load_voltage",
+    "min_load_voltage",
+    "mean_cell_temp",
+    "max_cell_temp",
+    "capacity_lag1",
+    "capacity_rolling_mean3",
+    "capacity_rolling_std3",
+    "delta_capacity_rate",
+    "voltage_drop_rate",
+    "temp_rise_rate",
+    "apparent_internal_resistance"
+  ],
+  "training_batteries": [
+    "battery00",
+    "battery01",
+    "battery20",
+    "battery22",
+    "battery23",
+    "battery40",
+    "battery41",
+    "battery50",
+    "battery02",
+    "battery12",
+    "battery24",
+    "battery32",
+    "battery53",
+    "battery13",
+    "battery54"
+  ],
+  "validation_batteries": [
+    "battery10",
+    "battery31",
+    "battery51",
+    "battery03",
+    "battery33"
+  ],
+  "test_batteries": [
+    "battery11",
+    "battery21",
+    "battery30",
+    "battery52",
+    "battery25",
+    "battery36"
+  ],
+  "test_metrics": {
+    "MAE_cycles": 2.451,
+    "RMSE_cycles": 4.051,
+    "R2_score": 0.813
+  },
+  "artifacts": {
+    "rf_model": "artifacts/models/random_forest_rul.joblib",
+    "xgb_model": "artifacts/models/xgboost_rul.json",
+    "svr_model": "artifacts/models/svr_rul.joblib",
+    "lstm_checkpoint": "artifacts/models/lstm_rul.pt",
+    "gru_checkpoint": "artifacts/models/gru_rul.pt",
+    "tabular_scaler": "artifacts/scalers/tabular_robust_scaler.joblib",
+    "imputation_medians": "artifacts/scalers/training_imputation_medians.joblib",
+    "sequence_scaler": "artifacts/scalers/sequence_standard_scaler.joblib"
+  }
+}
